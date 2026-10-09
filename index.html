@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FIRE PUNCH — Dunia Membeku, Satu Api</title>
+  <meta name="description" content="Blog fan Fire Punch karya Tatsuki Fujimoto: dunia es abadi, Agni si manusia api, karakter, dan fakta. Bebas spoiler berat.">
+  <meta name="theme-color" content="#0a0a0a">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="FIRE PUNCH — Dunia Membeku, Satu Api">
+  <meta property="og:description" content="Kenalan dengan Fire Punch, serial pertama Tatsuki Fujimoto. Bebas spoiler berat.">
+  <meta property="og:url" content="https://dans-vsa.github.io/fire-punch-fanblog/">
+  <meta property="og:image" content="https://dans-vsa.github.io/fire-punch-fanblog/assets/img/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230a0a0a'/%3E%3Cpath d='M16 4c2 6 8 8 8 15a8 8 0 0 1-16 0c0-4 2-6 4-8 0 3 1 5 3 5-1-5 0-9 1-12z' fill='%23ff4d12'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Zen Antique subset: only the 68 Japanese glyphs used on the page (1 small file instead of ~20 slices).
+       If you add Japanese text, regenerate the text= list. -->
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Antique&display=swap&text=%E3%81%8D%E3%81%A3%E3%81%A6%E3%81%A8%E3%81%AD%E3%81%AE%E3%82%A1%E3%82%A2%E3%82%A4%E3%82%AA%E3%82%AB%E3%82%AC%E3%82%B0%E3%82%B4%E3%82%B5%E3%82%B7%E3%82%B8%E3%82%B9%E3%82%BF%E3%83%80%E3%83%81%E3%83%83%E3%83%88%E3%83%89%E3%83%8A%E3%83%8B%E3%83%90%E3%83%91%E3%83%95%E3%83%97%E3%83%98%E3%83%99%E3%83%9E%E3%83%A0%E3%83%A3%E3%83%A6%E3%83%AB%E3%83%B3%E4%B8%80%E4%B8%89%E4%BA%8C%E4%BA%94%E4%BB%AE%E5%96%AA%E5%9B%9B%E5%A4%B1%E5%A5%B3%E5%AF%82%E5%B0%91%E5%B9%B4%E5%BE%8C%E6%86%B6%E6%98%A0%E6%9C%80%E6%A7%8D%E6%B0%B7%E7%94%9F%E7%94%B7%E7%94%BB%E7%A5%9D%E7%A6%8F%E7%AC%AC%E8%80%85%E8%A8%98%E8%A9%B1%E9%9D%A2%E9%A7%86%E9%AD%94" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=4">
+  <script>document.documentElement.classList.add("js")</script>
+</head>
+<body>
+  <a class="skip" href="#main" data-i18n="skip">Lewati ke konten</a>
+
+  <!-- global weather: blizzard + embers -->
+  <canvas id="weather" aria-hidden="true"></canvas>
+  <div class="heatwash" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <div class="network">
+    <a class="network__link" href="https://dans-vsa.github.io/fujimoto-archive/"><span aria-hidden="true">←</span> Fujimoto Archive</a>
+    <span class="network__sub" data-i18n="net.sub">Semua karya Tatsuki Fujimoto</span>
+  </div>
+
+  <header class="masthead">
+    <a class="wordmark" href="#top">FIRE<span>/</span>PUNCH</a>
+    <nav aria-label="Utama">
+      <ul class="nav">
+        <li><a href="#dunia" data-i18n="nav.world">Dunia</a></li>
+        <li><a href="#agni">Agni</a></li>
+        <li><a href="#karakter" data-i18n="nav.cast">Karakter</a></li>
+        <li><a href="#arc" data-i18n="nav.arcs">Arc</a></li>
+        <li><a href="#fakta" data-i18n="nav.facts">Fakta</a></li>
+        <li><a href="#baca" data-i18n="nav.read">Baca</a></li>
+      </ul>
+    </nav>
+    <button class="lang" id="lang" type="button" aria-label="Ganti bahasa / Switch language">EN</button>
+  </header>
+
+  <!-- thermometer HUD -->
+  <div class="hud" aria-hidden="true">
+    <div class="hud__bar"><i></i></div>
+    <div class="hud__txt"><span data-i18n="hud.temp">SUHU</span> <b id="temp">−41°C</b></div>
+  </div>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="top" data-temp="-41">
+      <div class="hero__speed" aria-hidden="true"></div>
+      <p class="hero__kicker mono" data-i18n="hero.kicker">Tatsuki Fujimoto · Shōnen Jump+ · 2016–2018</p>
+      <h1 class="hero__title" aria-label="Fire Punch">
+        <span class="hero__line" data-text="FIRE">FIRE</span>
+        <span class="hero__line" data-text="PUNCH">PUNCH</span>
+      </h1>
+      <p class="hero__jp jp" aria-hidden="true">ファイアパンチ</p>
+      <p class="hero__lede" data-i18n="hero.lede">Dunia tertutup salju abadi. Di tengahnya, satu manusia terbakar dan tak pernah mati.</p>
+      <button class="ignite" id="ignite" type="button">
+        <span class="ignite__ring" aria-hidden="true"></span>
+        <span class="mono" data-i18n="hero.hold">Tahan untuk menyalakan</span>
+      </button>
+      <canvas id="fire" class="hero__fire" aria-hidden="true"></canvas>
+      <a class="hero__down mono" href="#dunia" data-i18n="hero.down">Gulir ↓ masuk ke badai</a>
+    </section>
+
+    <!-- ============ CH 1 — WORLD ============ -->
+    <div class="chapter" aria-hidden="true"><span class="jp">第一話</span><span class="mono" data-i18n="ch1">Dunia yang membeku</span></div>
+
+    <section class="page" id="dunia" data-temp="-38">
+      <div class="page__grid world">
+        <article class="panel panel--wide wipe">
+          <p class="mono label" data-i18n="world.label">01 / Dunia</p>
+          <h2 data-i18n="world.title">Musim dingin yang tidak pernah selesai</h2>
+        </article>
+        <article class="panel panel--tone wipe">
+          <p data-i18n="world.p1">Bumi membeku dan tandus. Sosok yang disebut <strong>Penyihir Es</strong> dikaitkan dengan musim dingin abadi ini. Salju turun tanpa henti, makanan langka, dan manusia bertahan dengan cara apa pun.</p>
+        </article>
+        <article class="panel panel--ink wipe">
+          <p class="big jp">祝福者</p>
+          <p data-i18n="world.p2">Sebagian kecil manusia lahir dengan kekuatan luar biasa yang disebut <strong>Berkah</strong> (Blessing). Mereka disebut para <em>Blessed</em>.</p>
+        </article>
+        <figure class="panel panel--city wipe">
+          <img src="assets/img/cast/behemdorg.webp" alt="Panorama kota Behemdorg dari udara, digambar dengan arsiran manga" width="720" height="563" loading="lazy" decoding="async">
+          <figcaption data-i18n="world.city"><strong>Behemdorg</strong>, kota besar yang bertahan hidup dengan memperbudak para Blessed sebagai “kayu bakar”.</figcaption>
+        </figure>
+        <article class="panel panel--quote wipe">
+          <p class="sfx" aria-hidden="true">ゴオオ</p>
+          <p data-i18n="world.p3">Fire Punch bukan cerita pahlawan biasa. Ini kisah balas dendam yang terus berbelok ke arah yang tidak kamu duga.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ CH 2 — AGNI ============ -->
+    <div class="chapter chapter--fire" aria-hidden="true"><span class="jp">第二話</span><span class="mono" data-i18n="ch2">Api yang tidak bisa padam</span></div>
+
+    <section class="agni" id="agni" data-temp="12">
+      <div class="agni__inner">
+        <figure class="agni__cover wipe" id="cover">
+          <img src="assets/img/cover.webp" alt="Sampul Fire Punch volume 1: Agni diselimuti api" width="620" height="974" loading="lazy" decoding="async">
+          <img class="agni__color" src="assets/img/cover.webp" alt="" width="620" height="974" loading="lazy" decoding="async" aria-hidden="true">
+          <figcaption class="mono" data-i18n="agni.cap">Arahkan kursor: panas mengembalikan warna</figcaption>
+        </figure>
+        <div class="agni__text">
+          <p class="mono label label--fire" data-i18n="agni.label">02 / Protagonis</p>
+          <h2 class="agni__name">AGNI<span class="jp">アグニ</span></h2>
+          <p data-i18n="agni.p1">Agni punya Berkah <strong>regenerasi</strong>: luka apa pun sembuh dengan sendirinya. Suatu hari desanya dihancurkan oleh <strong>api yang tidak bisa dipadamkan</strong>.</p>
+          <p data-i18n="agni.p2">Api itu melekat di tubuhnya. Ia terbakar setiap detik, tapi regenerasinya tidak membiarkannya mati. Dengan tubuh yang terus menyala, ia bersumpah membalas dendam.</p>
+          <blockquote class="agni__quote">
+            <span class="jp">生きて</span>
+            <span data-i18n="agni.q">“Hiduplah.” Kata terakhir Luna, adiknya.</span>
+          </blockquote>
+          <ul class="agni__stats mono">
+            <li><span data-i18n="agni.s1">Berkah</span><b data-i18n="agni.s1v">Regenerasi</b></li>
+            <li><span data-i18n="agni.s2">Status</span><b data-i18n="agni.s2v">Terbakar selamanya</b></li>
+            <li><span data-i18n="agni.s3">Tujuan</span><b data-i18n="agni.s3v">Balas dendam</b></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CH 3 — CAST ============ -->
+    <div class="chapter" aria-hidden="true"><span class="jp">第三話</span><span class="mono" data-i18n="ch3">Mereka yang bertahan</span></div>
+
+    <section class="page" id="karakter" data-temp="-30">
+      <div class="page__head wipe">
+        <p class="mono label" data-i18n="cast.label">03 / Karakter</p>
+        <h2 data-i18n="cast.title">Wajah-wajah di tengah badai</h2>
+        <p class="note" data-i18n="cast.note">Bebas spoiler. Arahkan atau ketuk panel untuk menyalakannya.</p>
+      </div>
+      <div class="cast" id="cast"></div>
+      <h3 class="side__title mono" data-i18n="cast.side">Wajah lainnya</h3>
+      <div class="side" id="side"></div>
+    </section>
+
+    <!-- ============ CH 4 — ARCS ============ -->
+    <div class="chapter chapter--fire" aria-hidden="true"><span class="jp">第四話</span><span class="mono" data-i18n="ch4">Lima babak di tengah salju</span></div>
+
+    <section class="arcs" id="arc" data-temp="-25">
+      <div class="arcs__inner">
+        <div class="arcs__head wipe">
+          <p class="mono label" data-i18n="arcs.label">04 / Arc</p>
+          <h2 data-i18n="arcs.title">Lima babak, 83 bab</h2>
+          <p class="note" data-i18n="arcs.note">Teaser-nya bebas spoiler. Ringkasan lengkap membeku di bawah es: <strong>klik</strong> untuk melelehkannya. Nama arc berasal dari komunitas penggemar, bukan judul resmi.</p>
+        </div>
+        <div class="ruler wipe" id="ruler">
+          <p class="mono ruler__label" data-i18n="arcs.ruler">Peta bab</p>
+          <div class="ruler__track" id="ruler-track"></div>
+        </div>
+        <div class="arcs__list" id="arcs-list"></div>
+      </div>
+    </section>
+
+    <!-- ============ CH 5 — FACTS ============ -->
+    <div class="chapter" aria-hidden="true"><span class="jp">第五話</span><span class="mono" data-i18n="ch5">Catatan dari reruntuhan</span></div>
+
+    <section class="facts" id="fakta" data-temp="-20">
+      <div class="facts__inner">
+        <p class="mono label" data-i18n="facts.label">05 / Arsip</p>
+        <h2 data-i18n="facts.title">Fakta yang tersisa</h2>
+        <div class="stats">
+          <div class="stat wipe"><b data-count="83">0</b><span class="mono" data-i18n="facts.ch">Bab</span></div>
+          <div class="stat wipe"><b data-count="8">0</b><span class="mono" data-i18n="facts.vol">Volume</span></div>
+          <div class="stat wipe"><b data-count="2016">0</b><span class="mono" data-i18n="facts.start">Mulai terbit</span></div>
+          <div class="stat wipe"><b data-count="2018">0</b><span class="mono" data-i18n="facts.end">Tamat</span></div>
+        </div>
+        <p class="mono shelf__label" data-i18n="facts.shelf">Rak volume · tanggal terbit Jepang</p>
+        <div class="shelf" id="shelf"></div>
+        <ol class="trivia" id="trivia"></ol>
+      </div>
+    </section>
+
+    <!-- ============ READ ============ -->
+    <section class="read" id="baca" data-temp="-41">
+      <div class="read__inner wipe">
+        <p class="mono label" data-i18n="read.label">06 / Mulai baca</p>
+        <h2 data-i18n="read.title">Siap masuk ke badai?</h2>
+        <p data-i18n="read.p">Dukung karya aslinya lewat sumber resmi.</p>
+        <div class="read__links">
+          <a class="btn" href="https://www.viz.com/fire-punch" target="_blank" rel="noopener">VIZ Media <span class="mono" data-i18n="read.en">Inggris</span></a>
+          <a class="btn" href="https://shonenjumpplus.com/" target="_blank" rel="noopener">少年ジャンプ+ <span class="mono" data-i18n="read.jp">Jepang</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p data-i18n="footer.p">Blog fan, tidak berafiliasi dengan Shueisha atau VIZ Media. Fire Punch © Tatsuki Fujimoto / Shueisha.</p>
+    <p data-i18n="footer.img">Gambar karakter &amp; sampul volume dari <a href="https://firepunch.fandom.com/" rel="noopener">Fire Punch Wiki</a> (Fandom), dipakai untuk ulasan penggemar.</p>
+    <p><a href="https://dans-vsa.github.io/fujimoto-archive/" data-i18n="footer.net">← Kembali ke Fujimoto Archive</a></p>
+  </footer>
+
+  <script src="js/content.js?v=4"></script>
+  <script src="js/app.js?v=4"></script>
+</body>
+</html>
